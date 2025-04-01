@@ -1,4 +1,5 @@
-//打暴力
+//By C++
+//暴力解法
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
