@@ -1,0 +1,15 @@
+//By Java
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int n=nums.length;//记录原数组的长度
+        int slow=1,fast=1;//注意数组从1开始
+        while(fast<n){
+            if(nums[fast]!=nums[fast-1]){//判断出后一个元素不等于前一个元素
+                nums[slow]=nums[fast];//把fast指向的元素赋值给slow指向的元素
+                ++slow;//slow后移
+            }
+            ++fast;//fast后移
+        }
+        return slow;//slow指针的数值就是新数组的长度
+    }
+}
