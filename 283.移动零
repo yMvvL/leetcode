@@ -1,0 +1,13 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size(), left = 0, right = 0;
+        while (right < n) {//限定范围
+            if (nums[right]) {//右指针不为0，应该交换
+                swap(nums[left], nums[right]);
+                left++;
+            }
+            right++;//如果右指针指的是0，就会一直往右走直到不是0，而左指针会一直在0处停留
+        }
+    }
+};
