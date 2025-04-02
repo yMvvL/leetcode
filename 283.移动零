@@ -12,3 +12,4 @@ public:
         }
     }
 };
+注意：如果if(nums[right])报错，可能是越界了
