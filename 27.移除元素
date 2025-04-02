@@ -1,0 +1,20 @@
+//自己完成的第一道双指针
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int n=nums.size();
+        if(n==0) return 0;
+        int left=n-1,right=n-1,ans=0;//注意用swap移动位置的话要从后往前遍历，这样2全放到最后
+        while(right>=0){
+            if(nums[right]==val){
+                swap(nums[right],nums[left]);
+                left--;
+            }
+            right--;
+        }
+        for(int i=0;i<n&&nums[i]!=val;i++){
+            ans++;
+        }
+        return ans;
+    }
+};
