@@ -21,3 +21,16 @@ public:
         return ans;
     }
 };
+//哈希表
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        //哈希表
+        unordered_map<int,int> cnt;
+        for(int j=0;;j++){
+            auto it=cnt.find(target-nums[j]);//在cnt中查找“target-nums[j]”，并赋值给it,(如果没有找到会返回“cnt.end()”，所以后续判断it是否等于cnt.end()即可)
+            if(it!=cnt.end()) return {it->second,j};//"it->second"表示“target-nums[j]的索引”
+            cnt[nums[j]]=j;//在前面没找到符合题意的数，塞到cnt里，方便后续查找
+        }
+    }
+};
