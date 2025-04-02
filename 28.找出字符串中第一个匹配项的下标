@@ -3,7 +3,7 @@ public:
     int strStr(string haystack, string needle) {
         int n=haystack.size();
         int m=needle.size();//记录数组长度
-        for(int i=0;i+m<=n;i++){//短的长度和当前位置之和应该小于长的长度
+        for(int i=0;i+m<=n;i++){//短的长度和当前位置之和应该小于长的长度,注意这里是小于等于
             bool flag=true;
             for(int j=0;j<m;j++){
                 if(haystack[i+j]!=needle[j]){//从第i+1个开始，逐步判断j个元素是否分别相等
