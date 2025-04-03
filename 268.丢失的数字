@@ -15,4 +15,14 @@ public:
         return 2;
     }
 };
-//试试二分
+//数学方法等差数列
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=nums.size(),sum=0;
+        for(int i=0;i<n;i++){
+            sum+=nums[i];//注意这里是对数组内元素累加
+        }
+        return n+n*(n-1)/2-sum;
+    }
+};
