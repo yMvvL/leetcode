@@ -1,0 +1,19 @@
+//哈希表解决
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans;
+        unordered_map<int,int> Hashmap,check;
+        int n1=nums1.size(),n2=nums2.size();
+        for(int i=0;i<n1;i++){
+            Hashmap[nums1[i]]++;//记录下需要查重的数据
+        }
+        for(int i=0;i<n2;i++){
+            if(Hashmap[nums2[i]]!=0&&check[nums2[i]]==0){//判断加到ans里的数字只出现一次
+                check[nums2[i]]=1;
+                ans.push_back(nums2[i]);
+            }
+        }
+        return ans;
+    }
+};
