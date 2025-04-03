@@ -19,6 +19,7 @@ public:
 };
 
 //二分做法
+//实际上就是找左值，使得正好在这个值的时候这个值的平方小于x,下一个值的平方大于x
 class Solution {
 public:
     int mySqrt(int x) {
@@ -29,13 +30,12 @@ public:
                 return mid;
             }
             if(mid<x/mid){
-                ans=mid;//这句非常关键，每次找到一个mid更新一次ans的值
-                left=mid+1;
+                left=mid+1;//注意这里left加了一个1，最后返回时应该减个1
             }
             else{
                 right=mid-1;
             }
         }
-        return ans;
+        return left-1;
     }
 };
