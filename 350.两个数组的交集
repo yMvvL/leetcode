@@ -1,0 +1,24 @@
+//哈希表，但是这次得开三个
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int,int> check1,check2,check3;
+        vector<int> ans;
+        int n1=nums1.size(),n2=nums2.size();
+        for(int i=0;i<n1;i++){
+            check1[nums1[i]]++;
+        }
+        for(int i=0;i<n2;i++){
+            check2[nums2[i]]++;
+        }
+        for(int i=0;i<n2;i++){
+            if(check2[nums2[i]]!=0&&check1[nums2[i]]!=0&&check3[nums2[i]]==0){//这一步把符合题意的数字加到ans里
+                for(int j=0;j<min(check2[nums2[i]],check1[nums2[i]]);j++){//找出较小值，值是多少就push_back几次
+                    ans.push_back(nums2[i]);
+                }
+                check3[nums2[i]]++;//标志位，如果是1说明push_back过了，后续不用push_back了
+            }
+        }
+        return ans;
+    }
+};
