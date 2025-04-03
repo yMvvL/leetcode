@@ -1,0 +1,54 @@
+//二分查找
+//这个代码是错误示范，但我没有找出问题出在哪里
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int n=nums.size();
+        int left=0,right=nums.size()-1;
+        if(target>nums[n-1]){
+            return n;
+        }
+        if(target<nums[0]){
+            return 0;
+        }
+        while(left<right){
+            if(left+1==right&&nums[left]<target&&nums[right]>target){
+                return left;
+            }
+            int mid=(right-left)/2+left;
+            if(nums[mid]==target){
+                return mid;
+            }
+            else if(nums[mid]<target){
+                left=mid+1;
+            }
+            else{
+                right=mid;
+            }
+            if(left+1==right&&nums[left]<target&&nums[right]>target){
+                return left;
+            }
+        }
+        return 2;
+    }
+};
+//以下代码为正确示范（应该）
+//二分查找
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int n=nums.size();
+        int left=0,right=n-1,ans=n;
+        while(left<=right){
+            int mid=((right-left)>>1)+left;//确定新的边界
+            if(target<=nums[mid]){//等于的情况也判断，这样每次都运行到left=right之后结束
+                ans=mid;
+                right=mid-1;//改变边界
+            }
+            else{
+                left=mid+1;//改变边界
+            }
+        }
+        return ans;
+    }
+};
