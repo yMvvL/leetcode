@@ -1,0 +1,22 @@
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        //二分
+        //这里找的是最后一个对的，所以后面返回左值
+        int left=1,right=n,ans;
+        while(left<=right){
+            int mid=((right-left)>>1)+left;
+            if(isBadVersion(mid)==0){
+                ans=mid;
+                left=mid+1;
+            }
+            else{
+                right=mid-1;
+            }
+        }
+        return left;//注意这里返回左值
+    }
+};
