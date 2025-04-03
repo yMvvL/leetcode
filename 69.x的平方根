@@ -19,3 +19,23 @@ public:
 };
 
 //二分做法
+class Solution {
+public:
+    int mySqrt(int x) {
+        int left=1,right=x,ans=0;
+        while(left<=right){
+            int mid=((right-left)>>1)+left;
+            if(mid==x/mid){
+                return mid;
+            }
+            if(mid<x/mid){
+                ans=mid;//这句非常关键，每次找到一个mid更新一次ans的值
+                left=mid+1;
+            }
+            else{
+                right=mid-1;
+            }
+        }
+        return ans;
+    }
+};
