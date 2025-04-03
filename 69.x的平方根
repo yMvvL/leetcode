@@ -1,0 +1,21 @@
+//数据量不大，直接打暴力可以解决
+class Solution {
+public:
+    int mySqrt(int x) {
+        //x的平方根,实际上是要找出相邻两个数，并且小的平方比这个数小，大的平方比这个数大
+        if(x==0){
+            return 0;
+        }
+        for(int i=1;i<10e6;i++){
+            if(i==x/i){
+                return i;
+            }
+            if(i<x/i&&(i+1)>x/(i+1)){
+                return i;
+            }
+        }
+        return 1;
+    }
+};
+
+//二分做法
