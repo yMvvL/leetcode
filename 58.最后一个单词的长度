@@ -1,1 +1,20 @@
-
+//这道题没什么难度，注意最后加空格的抽象操作
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        //大概思路：每次检测到“ ”就更新一次长度length
+        int n=s.size(),ans=0,flag=0;
+        for(int i=0;i<n-1;i++){//这里只检测到倒数第二位，最后一位单独判定
+            if(s[i]==' '&&s[i+1]!=' '){//判断出后面还有单词再给ans归零，如果只检测到空格就归零会被末尾是空格的点干爆
+                ans=0;
+            }
+            else if(s[i]!=' '){//应对连续空格的情况
+                ans++;
+            }
+        }
+        if(s[n-1]!=' '){//判定最后一位
+            ans++;
+        }
+        return ans;
+    }
+};
