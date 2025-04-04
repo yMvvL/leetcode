@@ -1,0 +1,13 @@
+//简单的前缀和，注意初始位置为0，后续算出最高点海拔是负值是要返回0
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+        vector<int> height(gain.size());
+        height[0]=gain[0];
+        for(int i=1;i<gain.size();i++){
+            height[i]=height[i-1]+gain[i];
+        }
+        sort(height.begin(),height.end());
+        return height[height.size()-1]>0?height[height.size()-1]:0;
+    }
+};
