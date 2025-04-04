@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        //思路:先用map存一遍，再排序，二分找数
+        unordered_map<int,int> Hashmap;
+        for(int i=0;i<=nums.size()-1;i++){
+            //map<值，下标>
+            Hashmap[nums[i]]=i;
+        }
+        sort(nums.begin(),nums.end());
+        int l=0,r=nums.size()-1,ans=0;
+        while(l<=r){
+            int mid=((r-l)>>1)+l;
+            if(nums[mid]<=target){
+                ans=mid;
+                l=mid+1;
+            }
+            else{
+                r=mid-1;
+            }
+        }
+        if(nums[ans]==target){//注意这里判断
+            return Hashmap[target];
+        }
+        return -1;
+    }
+};
