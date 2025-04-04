@@ -1,0 +1,27 @@
+//前缀和，打暴力
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        vector<int> sums(nums.size());
+        sums[0]=nums[0];
+        int n=nums.size(),sum=0,max=0;
+        if(k==n){//特判，应对长度和元素个数相同的情况
+            for(int i=0;i<n;i++){
+                sum+=nums[i];
+            }
+            return (double)sum/(double)k;
+        }
+        for(int i=1;i<n;i++){
+            sums[i]=nums[i]+sums[i-1];
+        }
+        for(int i=0;i<k;i++){
+            max+=nums[i];
+        }
+        for(int i=k;i<n;i++){
+            if(max<(sums[i]-sums[i-k])){
+                max=sums[i]-sums[i-k];
+            }
+        }
+        return (double)max/(double)k;
+    }
+};
