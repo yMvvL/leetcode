@@ -1,0 +1,21 @@
+//双指针
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        //双指针
+        int n=nums.size();
+        if(n<=2){//判断一下如果小于2说明肯定不用动，直接返回即可
+            return n;
+        }
+        int slow=2,fast=2;//从第三个元素开始找
+
+        while(fast<n){
+            if(nums[slow-2]!=nums[fast]){//如果相等说明重复，重复就应该换成后面的值
+                nums[slow]=nums[fast];
+                ++slow;
+            }
+            ++fast;
+        }
+        return slow;
+    }
+};
