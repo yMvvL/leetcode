@@ -1,0 +1,20 @@
+//常规思路，直接打暴力即可
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+        string ans;
+        int n1=word1.size()-1,n2=word2.size()-1;
+        int left=0,right=0;
+        while(left<=n1||right<=n2){//这里判断小于两个中的任意一个
+            if(left<=n1){
+                ans.push_back(word1[left]);
+                left++;
+            }
+            if(right<=n2){
+                ans.push_back(word2[right]);
+                right++;
+            }
+        }
+        return ans;
+    }
+};
