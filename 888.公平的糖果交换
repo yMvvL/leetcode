@@ -1,0 +1,21 @@
+//运用数学关系再加二分
+//设sumA，sumB为二人的糖果总数，a,b是二人的糖果
+//可推得sumA-a+b=sumB-b+a,即a-b=(sumA-sumB)/2=target;
+//之后在bobSizes里找b即可
+class Solution {
+public:
+    vector<int> fairCandySwap(vector<int>& aliceSizes, vector<int>& bobSizes) {
+        int sumA=0,sumB=0;
+        sumA=accumulate(aliceSizes.begin(),aliceSizes.end(),0);
+        sumB=accumulate(bobSizes.begin(),bobSizes.end(),0);
+        int target=(sumA-sumB)>>1;
+        sort(bobSizes.begin(),bobSizes.end());
+        for(int a:aliceSizes){//确定一个a
+            int b=a-target;//在a的基础上找b
+            if(binary_search(bobSizes.begin(),bobSizes.end(),b)){
+                return {a,b};
+            }
+        }
+        return {};
+    }
+};
