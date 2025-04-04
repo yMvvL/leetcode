@@ -1,0 +1,14 @@
+class Solution {
+private://这里可以加个private来写函数
+    int gcd(int a,int b){//寻找最大公约数
+        return b==0?a:gcd(b,a%b);//辗转相除法
+    }
+public:
+    string gcdOfStrings(string str1, string str2) {
+        //本质上是找长度的最大公约数
+        if(str1+str2!=str2+str1){
+            return "";
+        }
+        return str1.substr(0,gcd(str1.size(),str2.size()));//输出符合题意的字符串
+    }
+};
