@@ -1,0 +1,44 @@
+//特判到吐的一道题
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+        int first_one=0,ans=0,zero=0;
+        int length=flowerbed.size()-1;
+        if(flowerbed[0]==0&&length==0){
+            return true;
+        }
+        //当前思路：三种情况，一种是开头一串0，一种是中间一串0，一种是结尾一串0
+        for(int i=0;i<=length;i++){
+            if(flowerbed[i]==1&&first_one==0){
+                first_one=1;//判断是开头一串的零
+                ans+=zero/2;
+                zero=0;
+                continue;
+            }
+            if(flowerbed[i]==0){//判断中间部分
+                zero+=1;
+            }
+            else{
+                if(zero%2==1){
+                    ans+=zero/2;
+                    zero=0;
+                } 
+                else{
+                    ans+=zero/2-1;
+                    zero=0;
+                }
+            }
+        }
+        //最后一串放在循环外检测
+        if(first_one==0&&zero%2==1){//用于处理{0,0,0,0,0,0,0,0}等的情况
+            ans+=zero/2+1;
+        }
+        else{
+            ans+=zero/2;
+        }
+        if(ans>=n){
+            return true;
+        }
+        return false;
+    }
+};
