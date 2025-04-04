@@ -1,0 +1,28 @@
+//打暴力就可以
+class Solution {
+private:
+    bool IsY(char a){
+        if(a=='a'||a=='e'||a=='i'||a=='o'||a=='u'||a=='A'||a=='E'||a=='I'||a=='O'||a=='U'){
+            return true;
+        }
+        return false;
+    }
+public:
+    string reverseVowels(string s) {
+        int left=0,right=s.size()-1;
+        while(left<right){//注意这里不能用等于，否则遇到a a时会出错(left和right都在' '上，会再次交换)
+            if(!IsY(s[left])){
+                left++;
+            }
+            if(!IsY(s[right])){
+                right--;
+            }
+            if(IsY(s[left])&&IsY(s[right])){
+                swap(s[left],s[right]);
+                left++;
+                right--;
+            }
+        }
+        return s;
+    }
+};
