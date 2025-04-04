@@ -1,0 +1,30 @@
+//从后往前检测分三种情况
+//一.最后一位不是9，直接加1即可
+//二.最后一位是9，第一位不是9，找到第一个不是9的数加一，后面的9全部归零
+//三.全都是9，开个新数组，存1和原数组长度个0
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        vector<int> ans={1};
+        int n=digits.size()-1,not9;
+        if(digits[n]!=9){
+            digits[n]++;
+            return digits;
+        }
+        for(int i=n;i>=0;i--){
+            if(digits[i]!=9){
+                not9=i;
+                digits[i]++;
+                not9++;
+                for(;not9<=n;not9++){
+                    digits[not9]=0;
+                }
+                return digits;
+            }
+        }
+        for(int i=1;i<=n+1;i++){
+            ans.push_back(0);
+        }
+        return ans;
+    }
+};
