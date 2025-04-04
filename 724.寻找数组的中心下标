@@ -1,0 +1,20 @@
+//常规的前缀和
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        vector<int> sums(nums.size());
+        sums[0]=nums[0];
+        for(int i=1;i<nums.size();i++){
+            sums[i]=sums[i-1]+nums[i];
+        }
+        if(sums[sums.size()-1]-sums[0]==0){
+            return 0;
+        }
+        for(int i=1;i<sums.size();i++){
+            if(sums[i]==sums[sums.size()-1]-sums[i-1]){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
