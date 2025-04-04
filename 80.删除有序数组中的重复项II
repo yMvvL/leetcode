@@ -14,7 +14,7 @@ public:
                 nums[slow]=nums[fast];
                 ++slow;
             }
-            ++fast;
+            ++fast;//这里用fast++也可以的
         }
         return slow;
     }
