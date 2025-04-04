@@ -1,0 +1,38 @@
+//打暴力
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        long long sum=0;
+        if(n==1){
+            return 1;
+        }
+        for(int i=0;i<=10e6;i++){
+            sum+=i;
+            if(sum>n){
+                return i-1;
+            }
+            if(sum==n){
+                return i;
+            }
+        }
+        return 0;
+    }
+};
+//二分,本质上还是等差数列求和公式
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int left=0,right=n,ans;
+        while(left<=right){
+            int mid=((right-left)>>1)+left;
+            if((long long)mid<=(long long)2*n/(long long)(mid+1)){
+                ans=mid;
+                left=mid+1;
+            }
+            else{
+                right=mid-1;
+            }
+        }
+        return ans;
+    }
+};
