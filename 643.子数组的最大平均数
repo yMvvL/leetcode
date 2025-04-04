@@ -25,3 +25,31 @@ public:
         return (double)max/(double)k;
     }
 };
+//滑动窗口
+//原理是左边减一个，右边加一个
+class Solution {
+private:
+    double cal(int max,int k){
+        return (double)max/k;
+    }
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        //其实完全可以不用前缀和
+        int l=0,r=k-1;
+        int max=0,sum=0;
+        for(int i=0;i<k;i++){
+            max+=nums[i];
+        }
+        sum=max;
+        while(r<nums.size()-1){
+            sum-=nums[l];
+            sum+=nums[r+1];
+            l++;
+            r++;
+            if(max<sum){
+                max=sum;
+            }
+        }
+        return cal(max,k);
+    }
+};
