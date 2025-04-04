@@ -1,0 +1,21 @@
+//双指针
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        if(s=="") return true;
+        int slow=0,fast=0;
+        if(s.size()==1&&t.size()==1&&s[0]!=t[0]){
+            return false;
+        }
+        while(fast<=t.size()){//注意这里要带等号
+            if(slow==s.size()){
+                return true;
+            }
+            if(s[slow]==t[fast]){
+                slow++;
+            }
+            fast++;
+        }
+        return false;
+    }
+};
