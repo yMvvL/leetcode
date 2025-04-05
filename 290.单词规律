@@ -1,0 +1,44 @@
+//思路和205.同构字符串相同，但在这道题中需要把各个单词记录下来
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        unordered_map<char,string> Hashmap;
+        unordered_map<string,int> countS;
+        unordered_map<char,int> Count;
+        int np=pattern.size(),ns=s.size();
+        vector<string> words;//words里存各个单词
+        string word;//word记录单个单词并塞到words
+        int i=0;
+        while(i<ns){
+            if(s[i]==' '){
+                i++;
+            }
+            while(i<ns&&s[i]!=' '){
+                word+=s[i];
+                i++;
+            }
+            words.push_back(word);//把word存到words里
+            word.clear();
+        }
+        if(pattern.size()!=words.size()){
+            return false;
+        }
+        //接下来要做的就是和同构那道题一样建立映射关系
+        for(int i=0;i<np;i++){
+            if(Count[pattern[i]]==0){
+                Count[pattern[i]]++;//说明映射已经存在，后续需要判断是否相等
+                Hashmap[pattern[i]]=words[i];//建立关系
+                countS[words[i]]++;
+                if(countS[words[i]]>1){
+                    return false;
+                }
+            }
+            else{//如果不是第一次出现该映射关系
+                if(Hashmap[pattern[i]]!=words[i]||countS[words[i]]>1){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
