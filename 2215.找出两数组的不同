@@ -1,0 +1,26 @@
+//开个map打暴力
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans0,ans1;
+        vector<vector<int>> ans={ans0,ans1};
+        unordered_map<int,int> Hashmap1,Hashmap2;
+        for(int i=0;i<nums1.size();i++){
+            Hashmap1[nums1[i]]++;
+        }
+        for(int i=0;i<nums2.size();i++){
+            Hashmap2[nums2[i]]++;
+        }
+        for(int i=0;i<nums1.size();i++){//查1里有几个2的
+            if(Hashmap2[nums1[i]]==0){
+                ans0.push_back(nums1[i]);
+            }
+        }
+        for(int i=0;i<nums2.size();i++){//查1里有几个2的
+            if(Hashmap1[nums2[i]]==0){
+                ans1.push_back(nums2[i]);
+            }
+        }
+        return ans;
+    }
+};
