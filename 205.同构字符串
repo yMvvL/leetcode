@@ -1,0 +1,26 @@
+//哈希表打暴力
+//注意badc对应baba的点不满足一对一，所以也得返回false，即countT的用途
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        int n=s.size();
+        unordered_map<char,char> Hashmap;
+        unordered_map<char,int> Count,countT; 
+        for(int i=0;i<n;i++){
+            if(Count[s[i]]==0){//第一次出现该映射
+                Hashmap[s[i]]=t[i];//让s和t对应元素建立关系
+                Count[s[i]]++;//记录该映射已经存在，后续出现不同时直接返回false
+                countT[t[i]]++;
+                if(countT[t[i]]>1){
+                    return false;
+                }
+            }
+            else{//如果不是第一次出现映射，就要判断新映射和原映射是否相同
+                if(Hashmap[s[i]]!=t[i]||countT[t[i]]>1){//如果不同直接返回false
+                    return false;
+                }//相同的话不用管
+            }
+        }
+        return true;
+    }
+};
