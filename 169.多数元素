@@ -1,0 +1,14 @@
+//开个哈希表直接检测就行，找到够一半的直接返回该元素
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int,int> Hashmap;
+        for(int i=0;i<nums.size();i++){
+            Hashmap[nums[i]]++;
+            if(Hashmap[nums[i]]>nums.size()/2){
+                return nums[i];
+            }
+        }
+        return 0;
+    }
+};
