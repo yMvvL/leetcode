@@ -1,0 +1,21 @@
+//很简单的一道题
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<int> ans(26,0);
+        int ns=s.size(),nt=t.size();
+        if(ns!=nt){//特判，长度不同肯定不是异位词
+            return false;
+        }
+        for(int i=0;i<ns;i++){
+            ans[s[i]-'a']++;
+        }
+        for(int i=0;i<ns;i++){
+            ans[t[i]-'a']--;
+            if(ans[t[i]-'a']<0){//如果有一个数小于0说明出现了两次，说明二者字母组成不完全一样，返回false
+                return false;
+            }
+        }
+        return true;
+    }
+};
