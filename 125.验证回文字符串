@@ -1,0 +1,35 @@
+//双指针
+class Solution {
+private:
+    string turn_small(string str){//把大写字母全换成小写，然后重新存到新string里
+        string str1;
+        for(int i=0;i<str.size();i++){
+            if(str[i]>='A'&&str[i]<='Z'){
+                str[i]+=32;
+            }
+            if(str[i]>='a'&&str[i]<='z'){
+                str1.push_back(str[i]);
+            }
+            if(str[i]>='0'&&str[i]<='9'){
+                str1.push_back(str[i]);
+            }
+        }
+        return str1;
+    }
+public:
+    bool isPalindrome(string s) {
+        string str1=turn_small(s);
+        int n=str1.size();
+        int left=0,right=n-1;
+        while(left<=right){
+            if(str1[left]!=str1[right]){//找到不相等的直接返回false
+                return false;
+            }
+            if(str1[left]==str1[right]){//如果相等就左边往右走1，右边玩左走1
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+};
