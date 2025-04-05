@@ -1,0 +1,27 @@
+//开哈希表，打暴力即可
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        vector<int> check;
+        int n=arr.size();
+        unordered_map<int,int> Hashmap,check_vec;
+        //Hashamap用于记录哪些数据出现过几次
+        //check_vec用于去重，让一个数据的出现次数只push_back给check一次
+        for(int i=0;i<n;i++){
+            Hashmap[arr[i]]++;
+        }
+        for(int i=0;i<n;i++){
+            if(check_vec[arr[i]]==0){
+                check.push_back(Hashmap[arr[i]]);
+                check_vec[arr[i]]++;
+            }
+        }
+        sort(check.begin(),check.end());
+        for(int i=1;i<check.size();i++){
+            if(check[i]==check[i-1]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
