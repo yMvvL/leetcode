@@ -1,0 +1,29 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string ans;
+        int n=strs.size();
+        if(n==1){
+            return strs[0];
+        }
+        char first=strs[0][0];
+        for(int i=0;i<n;i++){//这里是没有公共前缀的情况
+            if(first!=strs[i][0]){
+                return "";
+            }
+        }
+        //接下来判断有公共前缀的情况
+        for(int i=0;i<strs[0].size();i++){//i用于表示第几个字母
+            char a=strs[0][i];//把第一个字符串的元素赋给a
+            for(int j=0;j<n;j++){//j用于表示第几个字符串
+                if(strs[j][i]==a&&j==n-1){//判断到最后一个字符串，如果每个都相等就push_back到ans里
+                    ans.push_back(a);
+                }
+                if(strs[j][i]!=a||(j==n-1&&i==strs[0].size()-1)){//这里是判断几个字符串全部完全一样的情况：i和j都判断到最后并且都对应相等
+                    return ans;
+                }
+            }
+        }
+        return "";
+    }
+};
