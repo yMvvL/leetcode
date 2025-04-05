@@ -1,0 +1,21 @@
+//运用&位运算
+//&表示二者都为1或0，返回1，否则返回0
+class Solution {
+private:
+    int count_ones(int x){
+        int ones=0;
+        while(x>0){
+            x&=(x-1);//这道题相当于是把1变成0，变了几次就是有几个1
+            ones++;
+        }
+        return ones;
+    }
+public:
+    vector<int> countBits(int n) {
+        vector<int> ans;
+        for(int i=0;i<=n;i++){
+            ans.push_back(count_ones(i));
+        }
+        return ans;
+    }
+};
