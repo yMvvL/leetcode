@@ -1,0 +1,27 @@
+//正常打暴力，循环用Hashmap确定
+class Solution {
+private:
+    int get_square(int a){
+        int sum=0;
+        while(a){
+            int d=a%10;
+            sum+=d*d;
+            a/=10;
+        }
+        return sum;
+    }
+public:
+    bool isHappy(int n) {
+        unordered_map<int,int> Hashmap;
+        int temp;
+        while(get_square(n)!=1){//注意这里的判断条件
+            if(Hashmap[n]>0){//如果重复说明进入循环，返回false
+                return false;
+            }
+            Hashmap[n]++;
+            temp=get_square(n);
+            n=temp;
+        }
+        return true;
+    }
+};
