@@ -1,0 +1,12 @@
+//运用位运算^
+//^表示异或，即两个元素相同时返回0，不同时返回1
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int single=0;
+        for(int num:nums){
+            single^=num;
+        }
+        return single;
+    }
+};
