@@ -1,0 +1,16 @@
+//这也可以叫动态规划吗
+//这道题非常重要的一个思路就是把最大利润实时记录下来，这样哪怕后面的加个更低，但是利润也低的话不会影响最大利润的值
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int cost=INT_MAX,profit=-1;
+        for(int price:prices){
+            cost=min(cost,price);
+            profit=max(profit,price-cost);
+            /**
+              *假如遇到100,10000,1,10的极端情况，cost的值会改变，但是profit的值不会变，最后返回profit即可
+              */
+        }        
+        return profit;
+    }
+};
