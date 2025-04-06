@@ -1,0 +1,29 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        //好思路：先补全然后挨个相加，应该算高精度
+        int la=a.size(),lb=b.size();
+        while(la<lb){
+            a='0'+a;
+            la++;
+        }
+        while(lb<la){
+            b='0'+b;
+            lb++;
+        }
+        for(int i=0;i<la;i++){
+            a[i]=a[i]-'0'+b[i];
+        }
+        for(int i=la-1;i>0;i--){
+            if(a[i]>='2'){
+                a[i]=(a[i]-'0')%2+'0';
+                a[i-1]=a[i-1]+1;
+            }
+        }
+        if(a[0]>='2'){
+            a[0]=(a[0]-'0')%2+'0';
+            a='1'+a;
+        }
+        return a;
+    }
+};
