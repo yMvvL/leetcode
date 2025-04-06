@@ -1,0 +1,15 @@
+//位运算&寻找有几个1，二进制只有1个一说明是2的倍数
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        int ans=0;
+        while(n>0){
+            n&=n-1;
+            ans++;
+        }
+        if(ans==1){
+            return true;
+        }
+        return false;
+    }
+};
