@@ -1,4 +1,4 @@
-//位运算&寻找有几个1，二进制只有1个一说明是2的倍数
+//位运算&寻找有几个1，二进制只有1个一说明是2的整数次方
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
