@@ -1,0 +1,14 @@
+//哈希打暴力就行
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int,int> Hashmap;
+        for(int i=0;i<nums.size();i++){
+            Hashmap[nums[i]]++;
+            if(Hashmap[nums[i]]>=2){
+                return true;
+            }
+        }
+        return false;
+    }
+};
