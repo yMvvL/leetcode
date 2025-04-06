@@ -1,0 +1,25 @@
+//开两个哈希表
+//Hashmap用于储存数据出现过几次
+//count用于储存数据的位置
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int,int> Hashmap,count;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            Hashmap[nums[i]]++;
+            if(Hashmap[nums[i]]==1){
+                count[nums[i]]=i;//记录下第一次出现的位置
+            }
+            if(Hashmap[nums[i]]>1){
+                if(i-count[nums[i]]<=k){
+                    return true;
+                }
+                else{
+                    count[nums[i]]=i;//注意这里要更新，因为如果前两个大的话第一个和第三个只会更大
+                }
+            }
+        }
+        return false;
+    }
+};
