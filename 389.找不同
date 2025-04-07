@@ -1,0 +1,17 @@
+//开两个哈希表就可以解决
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        unordered_map<char,int>Hashmap1,Hashmap2;
+        for(int i=0;i<s.size();i++){
+            Hashmap1[s[i]]++;
+        }
+        for(int i=0;i<t.size();i++){
+            Hashmap2[t[i]]++;
+            if(Hashmap2[t[i]]>Hashmap1[t[i]]){
+                return t[i];
+            }
+        }
+        return 'a';
+    }
+};
