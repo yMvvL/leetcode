@@ -1,0 +1,14 @@
+class Solution {
+public:
+    string s="0123456789abcdef";
+    string toHex(int num) {
+        long long n=(num<0)?(long long)num+(1ll<<32):num;//1ll用于将数据临时扩容成long long
+        if(n==0) return "0";
+        string ret="";
+        while(n){
+            ret=s[n%16]+ret;//从后往前加，实现从前往后的push_back
+            n/=16;
+        }
+        return ret;
+    }
+};
