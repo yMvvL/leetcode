@@ -1,0 +1,15 @@
+class Solution {
+public:
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t result = 0;
+        for (int i = 0; i < 32; ++i) {
+            // 左移 result 一位，为新的位腾出位置
+            result <<= 1;
+            // 获取 n 的最低位
+            result |= (n & 1);
+            // 右移 n 一位，处理下一位
+            n >>= 1;
+        }
+        return result;
+    }
+};
