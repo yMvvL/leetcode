@@ -1,8 +1,8 @@
 class Solution {
 public:
-    string s="0123456789abcdef";
+    string s="0123456789abcdef";//这一句用来存储十六进制各位的数
     string toHex(int num) {
-        long long n=(num<0)?(long long)num+(1ll<<32):num;//1ll用于将数据临时扩容成long long
+        long long n=(num<0)?(long long)num+(1ll<<32):num;//1ll用于将数据临时扩容成long long，判断小于零否
         if(n==0) return "0";
         string ret="";
         while(n){
