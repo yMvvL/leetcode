@@ -1,0 +1,16 @@
+//哈希表打暴力
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char,int> Hashmap;
+        for(int i=0;i<s.size();i++){
+            Hashmap[s[i]]++;
+        }
+        for(int i=0;i<s.size();i++){
+            if(Hashmap[s[i]]==1){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
