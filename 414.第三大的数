@@ -1,0 +1,22 @@
+//拿三个数来储存最大值，次大值和第三大值
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        long a=LONG_MIN,b=LONG_MIN,c=LONG_MIN;
+        for(long num:nums){
+            if(num>a){//先用a存最大值
+                c=b;
+                b=a;
+                a=num;
+            }
+            else if(a>num&&num>b){//用b存次大值
+                c=b;
+                b=num;
+            }
+            else if(b>num&&num>c){//用c存第三大值
+                c=num;
+            }
+        }
+        return c==LONG_MIN?a:c;//如果等于LONG_MIN就说明没有第三大值，返回最大值
+    }
+};
