@@ -1,0 +1,13 @@
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string ans;
+        while(columnNumber>0){
+            --columnNumber;//减一个之后可以在下一句不用减1（‘A’+1之后就是‘B’了，但题干要求的是余数是1时返回‘A’）
+            ans+=columnNumber%26+'A';
+            columnNumber/=26;
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
