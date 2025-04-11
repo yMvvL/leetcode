@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        vector<int> temp;//存中间数据
+        string ans;
+        while(num1.size()!=num2.size()){//高精度，mmd
+            if(num1.size()<num2.size()){
+                num1="0"+num1;
+            }
+            if(num2.size()<num1.size()){
+                num2="0"+num2;
+            }
+        }//这一步把两个字符串处理成等长
+        for(int i=0;i<num1.size();i++){
+            temp.push_back((num1[i]-'0')+(num2[i]-'0'));
+        }
+        if(num1.size()==1&&num2.size()==1&&num1[0]-'0'+num2[0]-'0'>=10){
+            ans.push_back('1');
+            ans.push_back(temp[0]%10+'0');
+            return ans;
+        }
+        for(int i=temp.size()-1;i>=1;i--){
+            temp[i-1]+=temp[i]/10;
+            temp[i]%=10;
+        }
+        for(int i=0;i<temp.size();i++){
+            if(temp[i]>=10){
+                ans.push_back(temp[i]/10+'0');
+                ans.push_back(temp[i]%10+'0');
+            }
+            else{
+                ans.push_back(temp[i]+'0');
+            }
+        }
+        return ans;
+    }
+};
