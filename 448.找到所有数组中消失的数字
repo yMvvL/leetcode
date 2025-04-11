@@ -1,0 +1,17 @@
+//纯暴力解法
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        vector<int> ans;
+        unordered_map<int,int> Hashmap;
+        for(int i=0;i<nums.size();i++){
+            Hashmap[nums[i]]++;
+        }
+        for(int i=1;i<=nums.size();i++){
+            if(Hashmap[i]==0){
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
