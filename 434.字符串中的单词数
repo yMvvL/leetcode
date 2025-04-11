@@ -1,0 +1,22 @@
+//打暴力解决就可以
+class Solution {
+public:
+    int countSegments(string s) {
+        int ans=0,flag=0;
+        for(int i=0;i<s.size();i++){
+            if(i==s.size()-1&&s[i]!=' '){
+                ans++;
+            }
+            if(s[i]!=' '){
+                flag=1;
+                continue;
+            }
+            if(s[i]==' '&&flag==1){
+                ans++;
+                flag=0;
+            }
+            
+        }
+        return ans;
+    }
+};
