@@ -1,4 +1,5 @@
 //先排序，之后从右往左遍历，如果饼干大于孩子就给ans加一，否则就孩子往左走，直到找到一个小于饼干的或者找到最后一个孩子
+//双指针
 class Solution {
 public:
     int findContentChildren(vector<int>& g, vector<int>& s) {
