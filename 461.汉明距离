@@ -1,0 +1,20 @@
+//遍历x^y中所有的1
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int u=x^y;
+        int ans=0;
+        while(u){
+            u&=u-1;
+            ans++;
+        }
+        return ans;
+    }
+};
+//调用一个函数
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        return __builtin_popcount(x^y);
+    }
+};
