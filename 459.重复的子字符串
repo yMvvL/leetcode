@@ -1,0 +1,8 @@
+class Solution {
+public:
+    bool repeatedSubstringPattern(string s) {
+        //find函数用于寻找第一个出现的子字符串的的第一个元素的位置
+        return (s+s).find(s,1)!=s.size();//s.size()索引正好是第从前往后第二个的开头，说明s+s由两个重复的子串（s）组成,说明s不重复
+        //如果不相等就说明s重复
+    }
+};
