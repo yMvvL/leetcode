@@ -1,0 +1,20 @@
+//先排序，之后从右往左遍历，如果饼干大于孩子就给ans加一，否则就孩子往左走，直到找到一个小于饼干的或者找到最后一个孩子
+class Solution {
+public:
+    int findContentChildren(vector<int>& g, vector<int>& s) {
+        //g是孩子，s是饼干
+        int ans=0;
+        sort(g.begin(),g.end());
+        sort(s.begin(),s.end());
+        int child=g.size()-1;
+        int cookie=s.size()-1;
+        while(child>=0&&cookie>=0){
+            if(g[child]<=s[cookie]){
+                ans++;
+                cookie--;
+            }
+            child--;
+        }
+        return ans;
+    }
+};
