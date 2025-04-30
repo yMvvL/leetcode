@@ -1,0 +1,25 @@
+//滑动窗口
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        int avg,l=0,r=k-1;
+        int ans=0,sum=0;
+        for(int i=0;i<k;i++){
+            sum+=arr[i];
+        }
+        avg=sum/k;
+        if(avg>=threshold){
+            ans++;
+        }
+        while(r+1<arr.size()){
+            r++;
+            sum-=arr[l];//这里注意每次要对sum的数值进行更改
+            sum+=arr[r];//
+            if(sum/k>=threshold){
+                ans++;
+            }
+            l++;
+        }
+        return ans;
+    }
+};
