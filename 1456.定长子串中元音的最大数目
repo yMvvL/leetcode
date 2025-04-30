@@ -1,0 +1,36 @@
+//滑动窗口
+//注意防止越界问题
+class Solution {
+public:
+    int maxVowels(string s, int k) {
+        int l=0,r=k-1,temp=0,max;
+        if(k==1){
+            for(int i=0;i<s.length();i++){
+                if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'){
+                    return 1;
+                }
+            }
+        }
+        for(int i=0;i<k;i++){
+            if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'){
+                temp++;
+            }
+        }
+        max=temp;
+        while(r+1<s.length()){
+            if(s[l]=='a'||s[l]=='e'||s[l]=='i'||s[l]=='o'||s[l]=='u'){//这个if要放在前面
+                temp--;
+            }
+            l++;
+            r++;
+            if(s[r]=='a'||s[r]=='e'||s[r]=='i'||s[r]=='o'||s[r]=='u'){
+                temp++;
+            }
+            if(temp>max){
+                max=temp;
+            }
+            
+        }
+        return max;
+    }
+};
