@@ -1,0 +1,21 @@
+//这道题思路非常巧妙
+//滑动窗口
+class Solution {
+public:
+    vector<int> getAverages(vector<int>& nums, int k) {
+        int n=nums.size();
+        long long sum=0;
+        vector<int> ans(n,-1);//初始化为全是-1的数组，之后就用不到push_back了
+        if(k==0) return nums;//特判
+        if(2*k+1>n) return ans;//特判
+        for(int i=0;i<2*k+1;i++){
+            sum+=nums[i];
+        }
+        ans[k]=sum/(2*k+1);
+        for(int i=k+1;i+k<n;i++){//从k+1开始（正好是第二个窗口，左边是1）
+            sum+=nums[i+k]-nums[i-k-1];//i+k是右边框，i-k-1为左边框
+            ans[i]=sum/(2*k+1);
+        }
+        return ans;
+    }
+};
