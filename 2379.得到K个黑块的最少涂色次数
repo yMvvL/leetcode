@@ -1,0 +1,25 @@
+//滑动窗口
+class Solution {
+public:
+    int minimumRecolors(string blocks, int k) {
+        int n=blocks.length();
+        int current_white=0;
+        int min_white;
+        for(int i=0;i<k;i++){//初始化第一个窗口
+            if(blocks[i]=='W'){
+                current_white++;
+            }
+        }
+        min_white=current_white;
+        for(int i=k;i<n;i++){//一个一个向右移动
+            if(blocks[i-k]=='W'){//如果左边是白色说明少了个白色,current_white减1
+                current_white--;
+            }
+            if(blocks[i]=='W'){//如果右边是白色说明少了个白色，current_white加1
+                current_white++;
+            }
+            min_white=min(min_white,current_white);
+        }
+        return min_white;
+    }
+};
