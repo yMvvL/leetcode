@@ -1,0 +1,26 @@
+//Constructive Problems 
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	itn n;
+	cin>>n;
+	vector<pair<int,int>> nums(n); 
+	for(itn i=0;i<n;i++){
+		cin>>nums[i].first>>nums[i].second;
+	}
+	for(itn i=0;i<n;i++){
+		if(nums[i].first>nums[i].second){
+			cout<<nums[i].first<<endl;
+		}
+		else{
+			cout<<nums[i].second<<endl;
+		}
+	}
+	return 0;
+} 
