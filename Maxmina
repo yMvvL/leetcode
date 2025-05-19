@@ -1,0 +1,38 @@
+//Maxmina
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	itn t;
+	cin>>t;
+	vector<int> n(t),k(t);
+	vector<vector<int>> a;
+	for(int i=0;i<t;i++){
+		cin>>n[i]>>k[i];
+		vector<int> temp(n[i]);
+		for(int j=0;j<n[i];j++){
+			cin>>temp[j];
+		}
+		a.push_back(temp);
+	}
+	int flag=0;
+	for(int i=0;i<t;i++){
+		for(int j=0;j<a[i].size();j++){
+			flag=0;
+			if(a[i][j]==1){
+				cout<<"YES"<<endl;
+				flag=1;
+				break;
+			}
+			if(flag==0&&j==a[i].size()-1){
+				cout<<"NO"<<endl;
+			}
+		}
+	}
+	return 0;
+} 
