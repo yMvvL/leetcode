@@ -1,0 +1,29 @@
+//Round Down the Price
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	int n;
+	cin>>n;
+	vector<string> s(n);
+	for(int i=0;i<n;i++){
+		cin>>s[i];
+		s[i][0]-=1;
+		if(s[i][0]=='0'&&s[i].size()>1){
+			// s[i].erase(0,1);
+			for(int j=0;j<s[i].size()&&s[i][j]=='0'&&s[i].size()>1;){
+				s[i].erase(0,1);
+			}
+		}
+	}
+	for(int i=0;i<n;i++){
+		cout<<s[i]<<endl;
+	}
+
+	return 0;
+} 
