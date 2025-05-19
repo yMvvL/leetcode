@@ -1,0 +1,33 @@
+//Crossmarket
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	int n;
+	cin>>n;
+	vector<pair<int,int>> nums(n);
+	vector<int> ans(n);
+ 	for(int i=0;i<n;i++){
+		cin>>nums[i].first>>nums[i].second;
+	}
+	for(int i=0;i<n;i++){
+		if(nums[i].first==1&&nums[i].second==1){
+			ans[i]=0;
+			continue;
+		}
+		if(nums[i].first<=nums[i].second){
+			ans[i]=(nums[i].first*2-2)+nums[i].second;
+		}
+		else{
+			ans[i]=(nums[i].second*2-2)+nums[i].first;
+		}
+	}for(itn i=0;i<n;i++){
+		cout<<ans[i]<<endl;
+	}
+	return 0;
+} 
