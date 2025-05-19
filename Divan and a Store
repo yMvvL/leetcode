@@ -1,0 +1,41 @@
+//Divan and a Store
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	int t,n;
+	cin>>t;
+	vector<ll> l(t),r(t),k(t),ans(t,0);
+	vector<vector<ll>> a(t);
+	for(int i=0;i<t;i++){
+		cin>>n>>l[i]>>r[i]>>k[i];
+		vector<ll> temp(n);
+		for(int j=0;j<n;j++){
+			cin>>temp[j];
+		}
+		sort(temp.begin(),temp.end());
+		a[i]=temp;
+	}
+	for(int i=0;i<t;i++){
+		//对于每个数组而言
+		//已经排好序了，下一步是找到索引初始位置
+		//向右遍历，直到遍历到结尾或者大于预算
+		for(int j=0;j<a[i].size();j++){
+			if(a[i][j]>=l[i]&&a[i][j]<=r[i]){//符合价格预期
+				k[i]-=a[i][j];//计算剩余预算
+				if(k[i]>=0){
+					ans[i]++;
+				}
+			}
+		}
+	}
+	for(itn i=0;i<t;i++){
+		cout<<ans[i]<<endl;
+	}
+	return 0;
+} 
