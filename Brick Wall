@@ -1,0 +1,24 @@
+//Brick Wall
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	int t;
+	cin>>t;
+	vector<pair<int,int>> walls(t);
+	vector<int> ans(t);
+	for(int i=0;i<t;i++){
+		cin>>walls[i].first>>walls[i].second;
+		walls[i].second/=2;
+		ans[i]=walls[i].first*walls[i].second;
+	}
+	for(int i=0;i<t;i++){
+		cout<<ans[i]<<endl;
+	}
+	return 0;
+} 
