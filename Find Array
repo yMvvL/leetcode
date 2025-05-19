@@ -1,0 +1,46 @@
+//素数筛
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+vector<ll> primes;
+vector<ll> eulerSieve(ll n){
+	vector<bool> isPrime(n+1,true);
+	vector<ll> primes;
+	for(ll i=2;i<=n;i++){
+		if(isPrime[i]) primes.push_back(i);
+		for(ll j=0;j<primes.size()&&i*primes[j]<=n;j++){
+			isPrime[i*primes[j]]=false;
+			if(i%primes[j]==0) break;
+		}
+	}
+	return primes;
+}
+
+
+int main(){
+	IOS;
+	primes=eulerSieve(50000);
+	int n;
+	cin>>n;
+	vector<ll> nums(n);
+	vector<vector<ll>> ans(n); 
+	for(int i=0;i<n;i++){
+		cin>>nums[i];
+	}
+	for(int i=0;i<n;i++){
+		for(int j=0;j<nums[i];j++){
+			ans[i].push_back(primes[j]);
+		}
+	}
+	for(itn i=0;i<n;i++){
+		for(int j=0;j<ans[i].size();j++){
+			cout<<ans[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	return 0;
+}
