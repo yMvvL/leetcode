@@ -1,0 +1,35 @@
+//Two Groups
+//负数扔一组，正数扔一组，二者取绝对值，作差取绝对值
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+// #define vetcor vector
+
+// int main(){
+// 	IOS;
+// 	int t;
+// 	cin>>t;
+// 	vector<ll> n(t),sumP(t,0),sumM(t,0),ans(t);
+// 	vector<vector<ll>> a(t);
+// 	for(int i=0;i<t;i++){
+// 		cin>>n[i];
+// 		a[i].resize(n[i]);
+// 		for(int j=0;j<n[i];j++){
+// 			cin>>a[i][j];
+// 			if(a[i][j]>0){
+// 				sumP[i]+=a[i][j];
+// 			}
+// 			else{
+// 				sumM[i]+=a[i][j];
+// 			}
+// 		}
+// 		ans[i]=abs(abs(sumM[i])-abs(sumP[i]));
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		cout<<ans[i]<<endl;
+// 	}
+// 	return 0;
+// } 
