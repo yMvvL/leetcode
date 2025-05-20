@@ -1,0 +1,58 @@
+//Stable Arrangement of Rooks
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+
+// int main(){
+// 	IOS;
+// 	itn t;
+// 	cin>>t;
+// 	vector<int> n(t),k(t);
+// 	for(int i=0;i<t;i++){
+// 		cin>>n[i]>>k[i];
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		if(n[i]%2==1){//边长为奇数的情况
+// 			if(n[i]/2+1<k[i]){//放不下
+// 				cout<<-1<<endl;
+// 			}
+// 			else{//放的下，要输出图形
+// 				for(int j=0;j<n[i];j++){
+// 					for(itn l=0;l<n[i];l++){
+// 						if(l==j&&j%2==0&&k[i]){
+// 							k[i]--;
+// 							cout<<'R';
+// 						}
+// 						else{
+// 							cout<<".";
+// 						}
+// 					}
+// 					cout<<endl;
+// 				}
+// 			}
+// 		}
+// 		else{//边长为偶数的情况
+// 			if(n[i]/2<k[i]){//放不下
+// 				cout<<-1<<endl;
+// 			}
+// 			else{
+// 				for(int l=0;l<n[i];l++){
+// 					for(itn j=0;j<n[i];j++){
+// 						if(l==j&&l%2==0&&k[i]){
+// 							cout<<'R';
+// 							k[i]--;
+// 						}
+// 						else{
+// 							cout<<".";
+// 						}
+// 					}
+// 					cout<<endl;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	return 0;
+// } 
