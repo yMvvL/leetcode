@@ -1,0 +1,38 @@
+//Eshag Loves Big Arrays
+// //找到最小值然后把比他大的都删掉
+// //如果没有的话就返回0
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+// #define vetcor vector
+// #define asn ans
+
+// int main(){
+// 	IOS;
+// 	int t;
+// 	cin>>t;
+// 	vector<int> n(t),ans(t);
+// 	vector<vector<int>> a(t);
+// 	for(int i=0;i<t;i++){
+// 		cin>>n[i];
+// 		a[i].resize(n[i]);
+// 		for(int j=0;j<n[i];j++){
+// 			cin>>a[i][j];
+// 		}
+// 		sort(a[i].begin(),a[i].end());
+// 		for(int j=0;j<n[i];j++){
+// 			if(a[i][j+1]!=a[i][j]&&j+1<n[i]){
+// 				ans[i]=n[i]-1-j;
+// 				break;
+// 			}
+// 			ans[i]=0;
+// 		}
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		cout<<ans[i]<<endl;
+// 	}
+// 	return 0;
+// } 
