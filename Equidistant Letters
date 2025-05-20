@@ -1,0 +1,23 @@
+//Equidistant Letters
+//距离为0也可以，直接排序就可以
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+
+int main(){
+	IOS;
+	int t;
+	cin>>t;
+	vector<string> s(t);
+	for(int i=0;i<t;i++){
+		cin>>s[i];
+		sort(s[i].begin(),s[i].end());
+	}
+	for(int i=0;i<t;i++){
+		cout<<s[i]<<endl;
+	}
+	return 0;
+} 
