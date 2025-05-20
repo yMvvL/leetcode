@@ -1,0 +1,28 @@
+//Domino on Windowsill
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main(){
+	IOS;
+	int t;
+	cin>>t;
+	vector<int> n(t),w(t),b(t),k1(t),k2(t);
+	for(int i=0;i<t;i++){
+		cin>>n[i]>>k1[i]>>k2[i]>>w[i]>>b[i];
+	}
+	for(int i=0;i<t;i++){
+		if(2*w[i]<=k1[i]+k2[i]&&2*b[i]<=2*n[i]-(k1[i]+k2[i])){
+			cout<<"YES"<<endl;
+		}
+		else{
+			cout<<"NO"<<endl;
+		}
+	}
+	return 0; 
+} 
