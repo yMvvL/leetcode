@@ -1,0 +1,45 @@
+//Add Plus Minus Sign
+// //注意从第二个元素开始找，先输出'-'，再输出'+'
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+// #define vetcor vector
+// #define asn ans
+
+// int main(){
+// 	IOS;
+// 	itn t;
+// 	cin>>t;
+// 	vector<int> n(t);
+// 	vector<string> a(t),ans(t);
+// 	for(int i=0;i<t;i++){
+// 		cin>>n[i];
+// 		cin>>a[i];
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		int flag=0;
+// 		for(int j=1;j<a[i].size();j++){//从第一个开始找，找到最后一个
+// 			if(a[i][j]=='1'&&flag==0){
+// 				ans[i].push_back('-');
+// 				flag=1;
+// 				continue;
+// 			}
+// 			if(a[i][j]=='1'&&flag==1){
+// 				ans[i].push_back('+');
+// 				flag=0;
+// 				continue;
+// 			}
+// 			if(a[i][j]=='0'){
+// 				ans[i].push_back('+');
+// 			}
+
+// 		}
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		cout<<ans[i]<<endl;
+// 	}
+// 	return 0; 
+// } 
