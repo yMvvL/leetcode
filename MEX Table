@@ -1,0 +1,24 @@
+//MEX Table
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main(){
+	IOS;
+	int t;
+	cin>>t;
+	vector<int> n(t),m(t),ans(t);
+	for(int i=0;i<t;i++){
+		cin>>n[i]>>m[i];
+		ans[i]=max(n[i],m[i])+1;
+	}
+	for(int i=0;i<t;i++){
+		cout<<ans[i]<<endl;
+	}
+	return 0; 
+} 
