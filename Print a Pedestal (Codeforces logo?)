@@ -1,0 +1,37 @@
+//Print a Pedestal (Codeforces logo?)
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main(){
+	IOS;
+	int t;
+	cin>>t;
+	vector<int> n(t),h1(t),h2(t),h3(t);
+	for(itn i=0;i<t;i++){
+		cin>>n[i];
+		//都先除以三，然后把余数加给1，再从h3给h1发一个
+		h1[i]=n[i]/3;
+		h2[i]=n[i]/3;
+		h3[i]=n[i]/3;
+
+		if(n[i]%3==1){
+			h1[i]+=n[i]%3;
+		}
+		if(n[i]%3==2){
+			h1[i]+=1;
+			h2[i]+=1;
+		}
+		h1[i]+=1;
+		h3[i]-=1;
+	}
+	for(int i=0;i<t;i++){
+		cout<<h2[i]<<" "<<h1[i]<<" "<<h3[i]<<endl;
+	}
+	return 0; 
+} 
