@@ -1,0 +1,52 @@
+//Milya and Two Arrays
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main(){
+	IOS;
+	int t,diffa=0,diffb=0;
+	map<int,int> mpa,mpb;
+	cin>>t;
+	vector<int> n(t),a,b;
+	for(int i=0;i<t;i++){
+		diffa=0;
+		diffb=0;
+		mpa.clear();
+		mpb.clear();
+		cin>>n[i];
+		a.clear();
+		b.clear();
+		a.resize(n[i]);
+		b.resize(n[i]);
+		for(int j=0;j<n[i];j++){
+			cin>>a[j];
+			if(mpa[a[j]]==0){
+				mpa[a[j]]++;
+				diffa++;
+			}
+		}
+		for(int j=0;j<n[i];j++){
+			cin>>b[j];
+			if(mpb[b[j]]==0){
+				mpb[b[j]]++;
+				diffb++;
+			}
+		}
+		if(diffa+diffb>3){
+			cout<<"YES"<<endl;
+			continue;
+		}
+		else{
+			cout<<"NO"<<endl;
+		}
+
+	}
+
+	return 0; 
+} 
