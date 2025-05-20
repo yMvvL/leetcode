@@ -1,0 +1,35 @@
+//A Gift From Orangutan
+// //把最大的放在第一个，最小的放在第二个
+// //做完差后就是(n-1)*(最大的-最小的)
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+// #define vetcor vector
+// #define asn ans
+
+// int main(){
+// 	IOS;
+// 	int t;
+// 	cin>>t;
+// 	vector<int> n(t),ans(t);
+// 	vector<vector<int>> a(t);
+// 	for(int i=0;i<t;i++){
+// 		cin>>n[i];
+// 		a[i].resize(n[i]);
+// 		for(int j=0;j<n[i];j++){
+// 			cin>>a[i][j];
+// 			if(n[i]==1){
+// 				ans[i]=0;
+// 			}
+// 		}
+// 		sort(a[i].begin(),a[i].end());
+// 		ans[i]=(n[i]-1)*(a[i][n[i]-1]-a[i][0]);
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		cout<<ans[i]<<endl;
+// 	}
+// 	return 0; 
+// } 
