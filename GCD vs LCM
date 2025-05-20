@@ -1,0 +1,32 @@
+//GCD vs LCM
+// //a=n-3,b=c=d=1
+// //这样GCD和LCM都是1
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+// #define vetcor vector
+// #define asn ans
+
+// int main(){
+// 	IOS;
+// 	itn t;
+// 	cin>>t;
+// 	vector<int> n(t);
+// 	for(itn i=0;i<t;i++){
+// 		cin>>n[i];
+// 	}
+// 	vector<int> a,b,c,d;
+// 	for(int i=0;i<t;i++){
+// 		a.push_back(n[i]-3);
+// 		b.push_back(1);
+// 		c.push_back(1);
+// 		d.push_back(1);
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		cout<<a[i]<<" "<<b[i]<<" "<<c[i]<<" "<<d[i]<<endl;
+// 	}
+// 	return 0; 
+// } 
