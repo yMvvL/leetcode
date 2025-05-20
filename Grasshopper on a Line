@@ -1,0 +1,40 @@
+//Grasshopper on a Line
+// #include<bits/stdc++.h>
+// #include<climits>
+// using namespace std;
+// #define ll long long
+// #define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+// #define itn int
+// #define vetcor vector
+// #define asn ans
+
+// int main(){
+// 	IOS;
+// 	int t;
+// 	cin>>t;
+// 	vector<int> x(t),k(t),n(t);
+// 	vector<vector<int>> ans(t);
+// 	for(int i=0;i<t;i++){
+// 		cin>>x[i]>>k[i];
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		if(x[i]%k[i]!=0){//整除不了的情况
+// 			n[i]=1;
+// 			ans[i].push_back(x[i]);
+// 		}
+// 		else{//整除不了的情况
+// 			//往左一个1，再往右x[i]+1即可
+// 			n[i]=2;
+// 			ans[i].push_back(-1);
+// 			ans[i].push_back(x[i]+1);
+// 		}
+// 	}
+// 	for(int i=0;i<t;i++){
+// 		cout<<n[i]<<endl;
+// 		for(int j=0;j<n[i];j++){
+// 			cout<<ans[i][j]<<" ";
+// 		}
+// 		cout<<endl;
+// 	}
+// 	return 0;
+// } 
