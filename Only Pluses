@@ -1,0 +1,42 @@
+//Only Pluses
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+void add_min(int& a, int& b, int& c){
+	if (a <= b && a <= c) {
+		a++;
+		return ;
+	}
+	if (b <= a && b <= c) {
+		b++;
+		return ;
+	}
+	if (c <= a && c <= b) {
+		c++;
+		return ;
+	}
+}
+
+int main() {
+	IOS;
+	int t, a, b, c;
+	cin >> t;
+	vector<int> ans(t);
+	for (int i = 0; i < t; i++) {
+		cin >> a >> b >> c;
+		for (int j = 0; j < 5; j++) {
+			add_min(a, b, c);
+		}
+		ans[i] = a * b * c;
+	}
+	for (int i = 0; i < t; i++) {
+		cout << ans[i] << endl;
+	}
+	return 0;
+}
