@@ -1,0 +1,38 @@
+//Distance
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t;
+	cin >> t;
+	vector<int> x(t), y(t);
+	vector<pair<int, int>> ans(t);
+	for (int i = 0; i < t; i++) {
+		cin >> x[i] >> y[i];
+	}
+	for (int i = 0; i < t; i++) {
+		if ((x[i] + y[i]) % 2) {
+			ans[i].first = -1;
+			ans[i].second = -1;
+			continue;
+		}
+		if (x[i] >= y[i]) {
+			ans[i].first = x[i] - (x[i] + y[i]) / 2;
+			ans[i].second = y[i];
+		} else {
+			ans[i].first = x[i];
+			ans[i].second = y[i] - (y[i] + x[i]) / 2;
+		}
+	}
+	for (int i = 0; i < t; i++) {
+		cout << ans[i].first << " " << ans[i].second << endl;
+	}
+	return 0;
+}
