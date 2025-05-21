@@ -1,0 +1,24 @@
+//Subtraction Game
+//博弈论，前两次取完所有棋子即可
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main(){
+	IOS;
+	int t;
+	cin >> t;
+	vector<int> a(t), b(t);
+	for(int i = 0; i < t; i++){
+		cin >> a[i] >> b[i];
+	}
+	for(int i = 0; i < t; i++){
+		cout << a[i] + b[i] <<endl;
+	}
+	return 0;
+}
