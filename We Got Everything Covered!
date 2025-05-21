@@ -1,0 +1,31 @@
+//We Got Everything Covered!
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t;
+	cin >> t;
+	vector<int> n(t), k(t);
+	vector<string> ans(t);
+	for (int i = 0; i < t; i++) {
+		cin >> n[i] >> k[i];
+		//字符串长度为二者乘积
+		//n决定循环几次,k决定循环到哪个字母
+		for (int j = 0; j < n[i]; j++) {
+			for (char c = 'a'; c <= 'a' + k[i] - 1; c++) {
+				ans[i].push_back(c);
+			}
+		}
+	} 
+	for (int i = 0; i < t; i++) {
+		cout << ans[i] <<endl;
+	}
+	return 0;
+}
