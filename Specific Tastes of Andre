@@ -1,0 +1,29 @@
+//Specific Tastes of Andre
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, n;
+	cin >> t;
+	vector<vector<int>> ans(t);
+	for (int i = 0; i < t; i++) {
+		cin >> n;
+		for (int j = 0; j < n; j++) {
+			ans[i].push_back(1);
+		} 
+	}
+	for (int i = 0; i < t; i++) {
+		for (int j = 0; j < ans[i].size(); j++) {
+			cout << ans[i][j] << " ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
