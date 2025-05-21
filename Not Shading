@@ -1,0 +1,71 @@
+//Not Shading
+//史山代码，纯模拟，最多两次
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, m, n, c, r, flag = 0;
+	cin >> t;
+	vector<int> ans(t,-114514);
+	vector<vector<char>> WB;
+	//如果没有B直接返回-1
+	for (int i = 0; i < t; i++) {
+		cin >> n >> m >> r >> c;
+
+		WB.clear();
+
+		WB.resize(n, vector<char> (m));
+
+		for (int j = 0; j < n; j++) {
+			for (int k = 0; k < m; k++) {
+
+				cin >> WB[j][k];//读取地图
+
+				if (WB[j][k] == 'B') {//记录一下是否有'B'
+					flag = 1;
+				}
+			}
+		}
+		if (flag == 0) {//没有'B'的情况,记录下-1,进入下个循环
+
+			ans[i] = -1;
+			continue;
+
+		} else {//有'B'的情况
+
+			flag = 0;
+
+			if (WB[r-1][c-1] == 'B') {//需要的位置上已经是'B'
+				ans[i] = 0;
+				continue;
+			} else {
+				for (int l = 0; l < n; l++) {//两个循环处理同一列有的情况
+					if (WB[l][c-1]=='B') {
+						ans[i] = 1;
+						break;
+					}
+				}
+				for (int l = 0; l < m; l++) {
+					if (WB[r-1][l]=='B') {
+						ans[i] = 1;
+						break;						}
+					}
+					if (ans[i] == -114514) {
+						ans[i] = 2;
+					}
+				}
+		}
+	}
+	for (int i = 0; i < t; i++){
+		cout << ans[i] << endl;
+	}
+
+	return 0;
+}
