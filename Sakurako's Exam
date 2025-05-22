@@ -1,0 +1,25 @@
+//Sakurako's Exam
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, a, b;
+	cin >> t;
+	for (int i = 0; i < t; i++) {
+		cin >> a >> b;
+		if (a % 2 || (a == 0 && b % 2)) {
+			cout << "NO" << endl;
+			continue;
+		} else {
+			cout << "YES" << endl;
+		}
+	}
+	return 0;
+}
