@@ -1,0 +1,33 @@
+//Shape Perimeter
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, n, m, x, y;
+	cin >> t;
+	for (int i = 0; i < t; i++) {
+		cin >> n >> m;
+		int x_sum = m, y_sum = m;
+		if (n == 1) {
+			cin >> x >> y;
+			cout << 4 * m << endl;
+			continue;
+		}
+		for (int j = 0; j < n; j++) {
+			cin >> x >> y;
+			if (j > 0) {
+				x_sum += x;
+				y_sum += y;
+			}
+		}
+		cout << 2 * (x_sum + y_sum) << endl;
+	}
+	return 0;
+}
