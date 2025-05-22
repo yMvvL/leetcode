@@ -1,0 +1,35 @@
+//Cover in Water
+//MC无限水
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, n, cnt=0;
+	cin >> t;
+
+	for (int i = 0; i < t; i++) {
+		cin >> n;
+		string s;
+		cin >> s;
+		cnt = 0;
+		for (int j = 0; j < n; j++) {
+			if (s[j] == '.') {
+				cnt++;
+			}
+			if (j >= 2 && s[j] == '.' && s[j - 1] == '.' && s[j - 2] == '.') {
+				cnt = 2;
+				break;
+			}
+		}
+		cout << cnt << endl;
+	}	
+
+	return 0;
+}
