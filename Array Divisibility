@@ -1,0 +1,23 @@
+//Array Divisibility
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, n;
+	cin >> t;
+	for (int i = 0; i < t; i++) {
+		cin >> n;
+		for (int j = 1; j <= n; j++) {
+			cout << j << " ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
