@@ -1,0 +1,26 @@
+//Twin Permutations
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+#define ll long long
+#define IOS ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define itn int
+#define vetcor vector
+#define asn ans
+
+int main() {
+	IOS;
+	int t, n;
+	cin >> t;
+	for (int i = 0; i < t; i++) {
+		cin >> n;
+		vector<int> ans(n, n + 1), nums(n);
+		for (int j = 0; j < n; j++) {
+			cin >> nums[j];
+			ans[j] -= nums[j];
+			cout << ans[j] << " ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
